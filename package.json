@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/server.js",
   "scripts": {
-    "server": "node src/server/server.js"
+    "server": "node src/server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "example",
@@ -20,5 +21,8 @@
     "oauth-request": "^0.1.0",
     "request": "^2.88.2",
     "twitter": "^1.7.1"
+  },
+  "engines": {
+    "node": "10.x"
   }
 }
