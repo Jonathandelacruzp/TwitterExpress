@@ -365,5 +365,4 @@ app.get('/twitter/search/:q', function (req, res) {
     });
 })
 
-const _port = process.env.PORT || 8080;
 app.listen(_port, () => console.log(`Listening on port ${_port}`));
