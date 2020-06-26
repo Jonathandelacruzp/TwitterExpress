@@ -2,10 +2,14 @@
   "name": "ayudin-twitter",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/server.js",
+  "main": "src/server.js",
   "scripts": {
-    "build": "node /src/server/server.js"
+    "server": "node src/server/server.js"
   },
+  "keywords": [
+    "example",
+    "heroku"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
