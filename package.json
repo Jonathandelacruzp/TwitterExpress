@@ -1,0 +1,20 @@
+{
+  "name": "ayudin-twitter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/server.js",
+  "scripts": {
+    "build": "node /src/server/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "oauth-1.0a": "^2.2.6",
+    "oauth-request": "^0.1.0",
+    "request": "^2.88.2",
+    "twitter": "^1.7.1"
+  }
+}
