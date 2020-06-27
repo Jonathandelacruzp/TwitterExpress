@@ -8,6 +8,9 @@ var session = require('express-session');
 var MemoryStore = require('memorystore')(session)
 var qs = require('querystring')
 
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require('./swagger.json');
+
 dotenv.config();
 
 
@@ -47,6 +50,8 @@ app.use(session({
 }));
 
 const oauth = OAuth(_OAuthOptions)
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get('/', function (req, res) {
     res.send("twitter express")

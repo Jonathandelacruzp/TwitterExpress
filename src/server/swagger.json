@@ -1,0 +1,114 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Swagger Twitter",
+    "description": "A sample API that uses a twitstore as an example to demonstrate features in the swagger-2.0 specification",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "name": "Swagger API Team"
+    },
+    "license": {
+      "name": "MIT"
+    }
+  },
+  "host": "twitterexpress.herokuapp.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/auth/twitter": {
+      "get": {
+        "description": "Returns all twits from the system that the user has access to",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Request authorization to twitter."
+          }
+        }
+      }
+    },
+    "/twitter/user_timeline": {
+      "get": {
+        "description": "Returns all twits from the system that the user has access to",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get the timeline.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Twit"
+              }
+            }
+          },
+          "500": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/twitter/tweet": {
+      "post": {
+        "description": "Twits a message",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Twit",
+            "in": "body",
+            "description": "Add twit",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Twit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"           
+          },
+          "500": {
+            "description": "Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Twit": {
+      "type": "object",
+      "required": [
+        "id",
+        "text"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "id_str": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "lang": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
