@@ -17,8 +17,9 @@ const _twitterConsumerSecret = process.env.TWITTER_CONSUMER_SECRET;
 const _twitterAccessTockenKey = process.env.TWITTER_ACCESS_TOKEN_KEY;
 const _twitterAccessTockenKeySecret = process.env.TWITTER_ACCESS_TOKEN_SECRET;
 
+const _modeEnv = process.env.NODE_ENV;
 const _port = process.env.PORT || 8080;
-const _applicationUrl = `${process.env.APPLICATION_URL}:${_port}`
+const _applicationUrl = _modeEnv === 'development' ? `${process.env.APPLICATION_URL}:${_port}` : process.env.APPLICATION_URL;
 
 const _OAuthOptions = {
     consumer: {
