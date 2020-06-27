@@ -18,6 +18,8 @@ const _twitterAccessTockenKey = process.env.TWITTER_ACCESS_TOKEN_KEY;
 const _twitterAccessTockenKeySecret = process.env.TWITTER_ACCESS_TOKEN_SECRET;
 
 const _port = process.env.PORT || 8080;
+const _applicationUrl = `${process.env.APPLICATION_URL}:${_port}`
+
 const _OAuthOptions = {
     consumer: {
         key: _twitterConsumerKey,
@@ -54,7 +56,7 @@ app.get('/auth/twitter', function (req, res) {
         url: 'https://api.twitter.com/oauth/request_token',
         method: 'POST',
         data: {
-            oauth_callback: `http://127.0.0.1:${_port}/auth/twitter/callback`
+            oauth_callback: `${_applicationUrl}/auth/twitter/callback`
         },
     }
     request(
