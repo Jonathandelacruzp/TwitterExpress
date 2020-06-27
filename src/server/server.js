@@ -5,6 +5,7 @@ var OAuthRequest = require('oauth-request');
 var request = require('request');
 var crypto = require('crypto');
 var session = require('express-session');
+var MemoryStore = require('memorystore')(session)
 var qs = require('querystring')
 
 dotenv.config();
@@ -33,12 +34,20 @@ console.log(_twitterConsumerKey);
 var app = express();
 app.use(express.json())
 app.use(session({
+    cookie: { maxAge: 14400000 },
+    store: new MemoryStore({
+        checkPeriod: 14400000 // prune expired entries every 8h
+    }),
     secret: 'catito',
     resave: false,
     saveUninitialized: true
 }));
 
 const oauth = OAuth(_OAuthOptions)
+
+app.get('/', function (req, res) {
+    res.send("twitter express")
+})
 
 app.get('/auth/twitter', function (req, res) {
     const options = {
@@ -68,7 +77,6 @@ app.get('/auth/twitter', function (req, res) {
             res.redirect(`https://api.twitter.com/oauth/authorize?${qs.stringify({ oauth_token: resData.oauth_token })}`);
         }
     )
-
 })
 
 app.get('/auth/twitter/callback', function (req, res) {

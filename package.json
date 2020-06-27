@@ -17,6 +17,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
+    "memorystore": "^1.6.2",
     "oauth-1.0a": "^2.2.6",
     "oauth-request": "^0.1.0",
     "request": "^2.88.2",
