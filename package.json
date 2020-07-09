@@ -5,7 +5,8 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:ts": "tsc -p server"
   },
   "keywords": [
     "example",
@@ -26,5 +27,13 @@
   },
   "engines": {
     "node": "12.11.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.7",
+    "@types/express-session": "^1.17.0",
+    "@types/node": "^14.0.20",
+    "@types/request": "^2.48.5",
+    "@types/swagger-ui-express": "^4.1.2",
+    "typescript": "^3.9.6"
   }
 }
