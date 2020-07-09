@@ -1,4 +1,4 @@
-export interface TwitterModel {
+export interface UserTimeline {
     created_at: string;
     id: number;
     id_str: string;
